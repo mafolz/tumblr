@@ -1,0 +1,3 @@
+== 2011/03/03
+  Autor: mafolz
+* Change Httpary usage. use base_uri option instead of absolute uri. Solves problems with redirects

@@ -1,14 +1,15 @@
 require 'rubygems'
 require 'rake'
+require 'yaml'
 
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "tumblr-api"
+    gem.name = "mafolz-tumblr-api"
     gem.summary = %q{Tumblr API wrapper}
-    gem.email = "jeff@kreeftmeijer.nl"
-    gem.homepage = "http://github.com/jeffkreeftmeijer/tumblr"
-    gem.authors = ["Jeff Kreeftmeijer"]
+    gem.email = "folz.matthias@googlemail.com jeff@kreeftmeijer.nl"
+    gem.homepage = "http://github.com/mafolz/tumblr"
+    gem.authors = ["Jeff Kreeftmeijer", "Matthias Folz"]
     gem.add_dependency('httparty')
     gem.add_dependency('activesupport')
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

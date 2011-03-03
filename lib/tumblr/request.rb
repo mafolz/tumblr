@@ -2,26 +2,27 @@ class Tumblr
   class Request
     
     # a GET request to http://[YOURUSERNAME].tumblr.com/api/read
-    def self.read(options = {})
-        response = HTTParty.get("http://#{Tumblr::blog}/api/read", options)
+    def self.read(options = {})        
+        options[:base_uri] = "http://#{Tumblr::blog}"
+        response = HTTParty.get("/api/read", options)
       return response unless raise_errors(response)
     end
     
     # a POST request to http://www.tumblr.com/api/write
     def self.write(options = {})
-      response = HTTParty.post('http://www.tumblr.com/api/write', :query => options)
+      response = HTTParty.post('/api/write', :query => options, :base_uri => "http://www.tumblr.com")
       return(response) unless raise_errors(response)
     end
     
     # a POST request to http://www.tumblr.com/api/delete
     def self.delete(options = {})
-      response = HTTParty.post('http://www.tumblr.com/api/delete', :query => options)
+      response = HTTParty.post('/api/delete', :query => options, :base_uri => "http://www.tumblr.com")
       return(response) unless raise_errors(response)
     end
     
     # a POST request to http://www.tumblr.com/api/authenticate
     def self.authenticate(email, password)
-      HTTParty.post('http://www.tumblr.com/api/authenticate', :query => {:email => email, :password => password})
+      HTTParty.post('/api/authenticate', :query => {:email => email, :password => password}, :base_uri => "http://www.tumblr.com")
     end
     
     # raise tumblr response errors.
